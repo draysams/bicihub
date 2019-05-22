@@ -37,13 +37,98 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
   List<String> bioQuestions = [
     'Hiya, how can I help you today?'
   ];
+  List<String> bikerNames = [
+    'Amina',
+    'Teju',
+    'Nacho',
+    'Samuel',
+    'Liz',
+    'Jose',
+    'Davies',
+    'Ben',
+    'Peter',
+    'Jason'
+  ];
+   List<String> walkerNames = [
+    'Sarnava',
+    'Bose',
+    'Felix',
+    'Murphy',
+    'Gavin',
+    'Musa',
+    'Usiph',
+    'Calvin',
+    'Mensah',
+    'Kwaku'
+  ];
+
+  List<bool> feedbackButton = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+
+    List<String> bikerImages = [
+    'assets/avatars1.jpg',
+    'assets/avatars2.jpg',
+    'assets/avatars3.jpg',
+    'assets/avatars4.jpg',
+    'assets/avatars5.jpg',
+    'assets/avatars6.jpg',
+    'assets/avatars7.jpg',
+    'assets/avatars8.jpg',
+    'assets/avatars9.jpg',
+    'assets/avatars10.jpg',
+  ];
+
+    List<String> walkerImages = [
+    'assets/avatars10.jpg',
+    'assets/avatars9.jpg',
+    'assets/avatars8.jpg',
+    'assets/avatars7.jpg',
+    'assets/avatars6.jpg',
+    'assets/avatars5.jpg',
+    'assets/avatars4.jpg',
+    'assets/avatars3.jpg',
+    'assets/avatars2.jpg',
+    'assets/avatars1.jpg',
+  ];
+
+  List<String> nameList;
+  List<String> nameImage;
 
   String personText = 'Bike Mate';
   String groupText = 'Bike Group';
 
+  double calculatePadding(int index) {
+    double padding = 180.0;
+    if(nameList[index].length == 6) {
+      padding = 180;
+    } else  if(nameList[index].length == 5) {
+      padding = 190;
+    } else  if(nameList[index].length == 4) {
+      padding = 200;
+    } else  if(nameList[index].length == 3) {
+      padding = 210;
+    } else  if(nameList[index].length == 2) {
+      padding = 210;
+    }
+    return padding;
+  }
+
+ 
   @override
   void initState() {
     super.initState();
+    nameList = bikerNames;
+    nameImage = bikerImages;
   }
 
   @override
@@ -63,8 +148,13 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
           ],
           onTap: (index) {
             setState(() {
-              groupText = groupText == 'Bike Group' ? 'Walk Group' : 'Bike Group';
-              personText = personText == 'Walk Mate' ? 'Bike Mate' : 'Walk Mate';
+              if (nameList[0] == bikerNames[0]){
+               nameList = walkerNames;
+               nameImage = walkerImages;
+              } else {
+                nameList = bikerNames;
+                nameImage = bikerImages;
+              }
             });
           },
         )),
@@ -81,7 +171,6 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
                     itemCount: 10,
                     itemExtent: 80.0,
                     itemBuilder: (BuildContext context, int index) {
-                      iconPressed[index] = false;
                       return Container(
                         child: new Padding(
                           padding: const EdgeInsets.only(
@@ -108,19 +197,20 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
                                       padding: EdgeInsets.only(right: 10.0),
                                       child: CircleAvatar(
                                         radius: 25.0,
-                                        backgroundImage:
-                                            NetworkImage("http://assets.gcstatic.com/u/apps/asset_manager/uploaded/2015/03/businessman-on-phones-1421860994-custom-0.jpg"),
+                                        backgroundImage:AssetImage(nameImage[index]),
                                         backgroundColor: Colors.blueAccent,
                                       ),
                                     ),
-                                    Text(personText + index.toString()),
+                                    Text(nameList[index]),
                                     Padding(
-                                      padding: EdgeInsets.only(left: 140.0),
+                                      padding: EdgeInsets.only(left: calculatePadding(index)),
                                       child: IconButton(
-                                        icon: iconPressed[index] == false ? Icon(CupertinoIcons.add_circled) : Icon(CupertinoIcons.clear_thick, color: Colors.green),
+                                        icon: feedbackButton[index] == false? 
+                                          Icon(CupertinoIcons.add_circled, color: Colors.blueAccent,) : 
+                                          Icon(CupertinoIcons.check_mark_circled, color: Colors.greenAccent),
                                         onPressed: () {
                                           setState(() {
-                                            iconPressed[index] = true;
+                                            feedbackButton[index] = feedbackButton[index] == true ? false : true;
                                           });
                                         },
                                       ),
@@ -152,6 +242,4 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
             ),
         ));
   }
-
-  List<bool> iconPressed;
 }

@@ -7,6 +7,7 @@ import 'dart:math' as math;
 import 'dart:convert';
 import 'journey.dart';
 import 'statistics.dart';
+import 'mainpage.dart';
 
 
 import 'package:flutter/cupertino.dart';
@@ -175,7 +176,7 @@ class MenuState extends State<Menu> {
                     return new ClinibotTab();
                     break;
                   case 2:
-                    return new StatisticsPage();
+                    return new MainPage();
                     break;
                   default:
                 }
@@ -278,7 +279,7 @@ class HomeTabState extends State<HomeTab> {
     Widget scrollView = CustomScrollView(
             slivers: <Widget>[
               new CupertinoSliverNavigationBar(
-                largeTitle: new Text("$userTitle Bicihub"),
+                largeTitle: new Text("$userTitle Blink"),
               ),
               new SliverPadding(
                 // Top media padding consumed by CupertinoSliverNavigationBar.
@@ -298,6 +299,15 @@ class HomeTabState extends State<HomeTab> {
                         padding: EdgeInsets.all(3.0),
                         child: Column(
                           children: <Widget>[
+                             Padding(
+                              padding: EdgeInsets.only(top: 10.0),
+                              child: Text('Where to?',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 30.0,
+                                ),
+                              ),
+                            ),
                             Padding(
                               padding: EdgeInsets.only(top: 20.0),
                               child: GestureDetector( 
@@ -309,7 +319,7 @@ class HomeTabState extends State<HomeTab> {
                                 child: Image(
                                 image: new AssetImage("assets/school.png"),
                                 width: 400,
-                                height: 200.0,
+                                height: 170.0,
                                 fit: BoxFit.scaleDown,
                                 alignment: Alignment.center,
                               )
@@ -318,12 +328,14 @@ class HomeTabState extends State<HomeTab> {
                               padding: EdgeInsets.only(top:20.0, bottom: 20.0),
                               child: GestureDetector(
                                 onTap: () {
-                                  
+                                  Navigator.of(context).push(new CupertinoPageRoute<void>(
+                                    builder: (BuildContext context) => new JourneyPage()
+                                  ));
                                 },
                                 child: Image(
                                 image: new AssetImage("assets/home.png"),
                                 width: 400,
-                                height: 200.0,
+                                height: 170.0,
                                 fit: BoxFit.scaleDown,
                                 alignment: Alignment.center,
                               )
@@ -807,7 +819,7 @@ class ClinibotTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return new CupertinoPageScaffold(
         navigationBar: const CupertinoNavigationBar(
-          middle: const Text('Bike Group 3'),
+          middle: const Text('St. Mary\'s'),
         ),
         child: new ChatScreen()
         );
