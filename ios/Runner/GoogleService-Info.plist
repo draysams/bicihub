@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>694524485624-31rjufablvk9cac44ns50csooqvishcu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.694524485624-31rjufablvk9cac44ns50csooqvishcu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>694524485624-p7t6ocb28idjvnk55qj28dn17dmst0et.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBcGNA__9kwQ0LpY-Q1XZZTD_P4aVo-6GY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>694524485624</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.draysams.transfeed</string>
+	<key>PROJECT_ID</key>
+	<string>clinibotapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>clinibotapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:694524485624:ios:c592b9b422ea5617</string>
+	<key>DATABASE_URL</key>
+	<string>https://clinibotapp.firebaseio.com</string>
+</dict>
+</plist>
