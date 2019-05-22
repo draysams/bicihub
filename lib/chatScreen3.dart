@@ -125,14 +125,9 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-      _addMessage('Hello, \n\nI can help you find: \n' +
-        '    - Car parking\n' +
-        '    - Disabled parking \n' +
-        '    - EV charging points \n' +
-        '    - Maintenance schedules \n' +
-        '    - Cycle parking \n', avatar);
-      new Timer(const Duration(seconds: 1), () {
-        _addMessage("How can I help you?", avatar);
+      _addMessage('Heyy, \n What time are we meeting', avatar);
+      new Timer(const Duration(seconds: 2), () {
+        _addMessage("How does 8:10 AM sound?", avatar);
       return;
       });
 
@@ -238,6 +233,19 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
      setState(() {
         questionText = answerText;
       });
+
+    if (queryText == 'Where should we meet?') {
+      new Timer(const Duration(seconds: 1), () {
+        _addMessage('Let\'s meet at your house?.', avatar);
+      });
+    } else if (queryText == 'Agreed') {
+      _addMessage('Awesome, let\'s meet at 8:10 AM at your house', avatar);
+      new Timer(const Duration(seconds: 1), () {
+        _addMap('https://maps.googleapis.com/maps/api/staticmap?center=53.293852%2C-6.4237298&zoom=10&size=800x600&key=' + googleMapsApiKey, 'bike_parking', avatar);
+        return;
+      });
+    }
+
     if (questionText == 'car_parking' || questionText == 'all_car_parks') {
       _addMessage('Tap the map below to view\nall car parks in your area.', avatar);
       new Timer(const Duration(seconds: 1), () {
@@ -259,7 +267,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     } else if (questionText == 'maintenance') {
       _addMessage('There is currently no maintenance schedule near you.', avatar);
     } else if (questionText == 'bike_parking') {
-      _addMessage('Tap the map below to view\nthe available bicyle parking near you.', avatar);
+      _addMessage('Awesome, let\'s meet at 8:10 AM at my house', avatar);
       new Timer(const Duration(seconds: 1), () {
         _addMap('https://maps.googleapis.com/maps/api/staticmap?center=53.293852%2C-6.4237298&zoom=10&size=800x600&key=' + googleMapsApiKey, 'bike_parking', avatar);
         return;
@@ -282,13 +290,6 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         '    - Car parking,\n' +
         '    - Disabled parking, or \n' +
         '    - Bicycle parking? \n', avatar);
-    } else {
-       _addMessage('I can help you to find : \n' +
-        '    - Car parking\n' +
-        '    - Disabled parking \n' +
-        '    - EV charging points \n' +
-        '    - Maintenance schedules \n' +
-        '    - Cycle parking \n', avatar);
     }
     
     return response;

@@ -148,7 +148,7 @@ class _MapsPageState extends State<MapsPage> {
 
   resetCamera() {
     mapController.animateCamera(CameraUpdate.newCameraPosition(
-        CameraPosition(target: LatLng(40.7128, -74.0060), zoom: 10.0))).then((val) {
+        CameraPosition(target: LatLng(53.2937658, -6.4283791), zoom: 10.0))).then((val) {
              setState(() {
                      resetToggle = false;
              });
@@ -215,7 +215,7 @@ class _MapsPageState extends State<MapsPage> {
                         ? GoogleMap(
                             onMapCreated: onMapCreated,
                             initialCameraPosition:  CameraPosition(
-                              target: LatLng(40.7128, -74.0060),
+                              target: LatLng(53.2937658, -6.4283791),
                               zoom: 10.0
                             ),
                             markers: Set<Marker>.of(markers.values),
