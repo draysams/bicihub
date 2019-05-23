@@ -304,15 +304,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
             Padding(
               padding: EdgeInsets.only(left:8.0, top: 70),
               child: Center(
-                child: Text(
-                "Hoooray!!, You have travelled around \nPheonix Park twice",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.white70,
-                fontStyle: FontStyle.italic,
-              ),
-              ),),),
+                child: Image.asset(
+                  'assets/polar.png'
+                )),),
             Padding(
               padding: EdgeInsets.only(top: 120),
               child: CupertinoButton(

@@ -213,10 +213,10 @@ class _MainPageState extends State<MainPage> {
                       Row(
                         children: <Widget>[
                     new Padding(
-                    padding: EdgeInsets.only(left: 1.0, top: 20.0),
+                    padding: EdgeInsets.only(left: 0.0, top: 20.0),
                     child: Text('Your position #5',
                     style: TextStyle(
-                      fontSize: 15.0,
+                      fontSize: 20.0,
                       color: Colors.white,
                     ),),
                   ),
@@ -232,7 +232,7 @@ class _MainPageState extends State<MainPage> {
                     padding: EdgeInsets.only(left: 15.0, top: 20.0),
                     child: Text('School position #9',
                     style: TextStyle(
-                      fontSize: 15.0,
+                      fontSize: 20.0,
                       color: Colors.white,
                     ),),
                   ),
@@ -245,7 +245,7 @@ class _MainPageState extends State<MainPage> {
                     ]
                 ),
                 Padding(
-                padding: EdgeInsets.only(left: 50.0, top: 10),
+                padding: EdgeInsets.only(left: 20.0, top: 10),
                 child: CircleAvatar(
                 radius: 80.0,
                 backgroundImage:AssetImage('assets/activity2.jpg'),
@@ -317,15 +317,15 @@ class _MainPageState extends State<MainPage> {
               children: <Widget>[
                 new Padding(
                   padding: EdgeInsets.only(left: 70.0, top: 20.0),
-                  child: Text('Time',
+                  child: Text('Trips Made',
                   style: TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
                       ),),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 120.0, top: 20.0),
-                  child: Text('36 Minutes',
+                  padding: EdgeInsets.only(left: 65.0, top: 20.0),
+                  child: Text('17 ',
                   style: TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
@@ -333,9 +333,15 @@ class _MainPageState extends State<MainPage> {
                 )
               ],
             ),
+            Padding(
+              padding: EdgeInsets.only(left:8.0, top: 40, right: 8.0),
+              child: Center(
+                child: Image.asset(
+                  'assets/polar.png'
+                )),),
 
             Padding(
-              padding: EdgeInsets.only(top: 190),
+              padding: EdgeInsets.only(top: 50),
               child: CupertinoButton(
                 color: Colors.green,
                 child: Text('Start Journey',
