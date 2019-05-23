@@ -255,7 +255,7 @@ class _MapsPageState extends State<MapsPage> {
                                 width: 300,
                                 height: 100,
                                 child: Center(
-                                  child: Text('Swipe to start trip',
+                                  child: Text('Tap to start trip',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
