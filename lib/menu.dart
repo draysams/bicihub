@@ -6,8 +6,9 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'dart:convert';
 import 'journey.dart';
-import 'statistics.dart';
 import 'mainpage.dart';
+import 'statistics.dart';
+import 'mainstats.dart';
 
 
 import 'package:flutter/cupertino.dart';
@@ -142,8 +143,12 @@ class MenuState extends State<Menu> {
               title: const Text('Home'),
             ),
             const BottomNavigationBarItem(
-              icon: const Icon(CupertinoIcons.person_add),
-              title: const Text('Groups'),
+              icon: const Icon(CupertinoIcons.location),
+              title: const Text('Journey'),
+            ),
+            const BottomNavigationBarItem(
+              icon: const Icon(CupertinoIcons.conversation_bubble),
+              title: const Text('Chat'),
             ),
             const BottomNavigationBarItem(
               icon: Icon(statistics),
@@ -162,6 +167,9 @@ class MenuState extends State<Menu> {
               builder: (BuildContext context) {
                 switch (index) {
                   case 0:
+                    return new MainPage();
+                    break;
+                  case 1:
                     return new HomeTab(
                       evidences: evidences,
                       colorItems: colorItems,
@@ -172,11 +180,11 @@ class MenuState extends State<Menu> {
                       colorNameItems: colorNameItems,
                     );
                     break;
-                  case 1:
+                  case 2:
                     return new ClinibotTab();
                     break;
-                  case 2:
-                    return new MainPage();
+                  case 3:
+                    return new MainStats();
                     break;
                   default:
                 }
@@ -276,10 +284,21 @@ class HomeTabState extends State<HomeTab> {
       userTitle = user.substring(0, spaceIndex);
     }
 
-    Widget scrollView = CustomScrollView(
+    Widget scrollView = Container(
+      decoration: new BoxDecoration(
+            gradient: new LinearGradient(colors: [Colors.blue[800], Colors.green[600]],
+                begin: const FractionalOffset(0.5, 0.0),
+                end: const FractionalOffset(0.0, 0.5),
+                stops: [0.0,1.0],
+                tileMode: TileMode.clamp
+            ),
+          ),
+      child: CustomScrollView(
             slivers: <Widget>[
               new CupertinoSliverNavigationBar(
                 largeTitle: new Text("$userTitle Blink"),
+                trailing: Image.asset('assets/blinklogo.png'),
+                
               ),
               new SliverPadding(
                 // Top media padding consumed by CupertinoSliverNavigationBar.
@@ -303,7 +322,7 @@ class HomeTabState extends State<HomeTab> {
                               padding: EdgeInsets.only(top: 10.0),
                               child: Text('Where to?',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white70,
                                   fontSize: 30.0,
                                 ),
                               ),
@@ -360,7 +379,7 @@ class HomeTabState extends State<HomeTab> {
                 ),
               ),
             ],
-          );
+          ));
 
     //print(widget.evidences[0][0]['question']);
     var timeout = const Duration(seconds: 7);

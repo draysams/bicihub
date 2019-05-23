@@ -3,18 +3,57 @@ import 'package:geolocator/geolocator.dart';
 import 'model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
-class StatisticsPage extends StatefulWidget {
-  const StatisticsPage(
+class MainStats extends StatefulWidget {
+  const MainStats(
       {this.title, this.markerType});
 
   final String title;
   final String markerType;
   @override
-  _StatisticsPageState createState() => _StatisticsPageState();
+  _MainStatsState createState() => _MainStatsState();
 }
 
-class _StatisticsPageState extends State<StatisticsPage> {
+class ClicksPerYear {
+  final String year;
+  final int clicks;
+  final charts.Color color;
+
+  ClicksPerYear(this.year, this.clicks, Color color)
+      : this.color = new charts.Color(
+            r: color.red, g: color.green, b: color.blue, a: color.alpha);
+}
+
+var data = [
+  new ClicksPerYear('2016', 12, Colors.red),
+  new ClicksPerYear('2017', 42, Colors.yellow),
+  new ClicksPerYear('2018', 32, Colors.green),
+];
+
+var series = [
+  new charts.Series(
+    id: 'Clicks',
+    domainFn: (ClicksPerYear clickData, _) => clickData.year,
+    measureFn: (ClicksPerYear clickData, _) => clickData.clicks,
+    colorFn: (ClicksPerYear clickData, _) => clickData.color,
+    data: data,
+  ),
+];
+
+var chart = new charts.BarChart(
+  series,
+  animate: true,
+);
+var chartWidget = new Padding(
+  padding: new EdgeInsets.all(32.0),
+  child: new SizedBox(
+    height: 200.0,
+    child: chart,
+  ),
+);
+
+class _MainStatsState extends State<MainStats> {
   bool mapToggle = true;
   bool clientsToggle = true;
   bool resetToggle = false;
@@ -162,7 +201,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Your Trip'), 
+          title: Text('Statistics'), 
           flexibleSpace: Container(
           decoration: new BoxDecoration(
             gradient: new LinearGradient(
