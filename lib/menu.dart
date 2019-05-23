@@ -7,7 +7,6 @@ import 'dart:math' as math;
 import 'dart:convert';
 import 'journey.dart';
 import 'mainpage.dart';
-import 'statistics.dart';
 import 'mainstats.dart';
 
 

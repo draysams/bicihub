@@ -231,16 +231,31 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         questionText = answerText;
       });
 
-    if (queryText == 'Where should we meet?') {
+    if (queryText == 'Where should we meet?' || 
+         queryText.trim() ==  'where should we meet?' || 
+         queryText.trim() == 'meeting point?'|| 
+         queryText.trim() ==  'meeting point' ||
+         queryText.trim() ==  'where do we meet?' ||
+         queryText.trim() ==  'where do we meet?' ) {
       new Timer(const Duration(seconds: 1), () {
         _addMessage('Let\'s meet at your house?.', avatar);
       });
-    } else if (queryText == 'Agreed') {
+    } else if (queryText == 'Sure' ||
+               queryText == 'sure' ||
+               queryText == 'yes' ||
+               queryText == 'awesome' ||
+               queryText == 'yhup' ||
+               queryText == 'agreed' ||
+               queryText == 'yeah') {
       _addMessage('Awesome, let\'s meet at 8:10 AM at your house', avatar);
       new Timer(const Duration(seconds: 1), () {
         _addMap('https://maps.googleapis.com/maps/api/staticmap?center=53.293852%2C-6.4237298&zoom=10&size=800x600&key=' + googleMapsApiKey, 'bike_parking', avatar);
         return;
-      });
+      },);
+    } else {
+      new Timer(const Duration(seconds: 1), () {
+        _addMessage('You can ask \n"where do we meet?"\n\n And type "agreed" when done.', avatar);
+      }); 
     }
 
     if (questionText == 'car_parking' || questionText == 'all_car_parks') {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'maps.dart';
 import 'menu.dart';
 
 class JourneyScreen extends StatefulWidget {
@@ -141,7 +140,7 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(bottom: 80),
           child: CurvedNavigationBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Colors.green,
           items: <Widget>[
             Icon(Icons.directions_bike, size: 30),
             Icon(Icons.directions_walk, size: 30),
@@ -184,12 +183,9 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
                                 padding: new EdgeInsets.only( left: 5.0),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => MapsPage(
-                                        title: 'Group Location',
-                                      )),
-                                    );
+                                    setState(() {
+                                      feedbackButton[index] = feedbackButton[index] == true ? false : true;
+                                    });
                                   },
                                   child: Row(
                                   children: <Widget> [
@@ -198,7 +194,7 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
                                       child: CircleAvatar(
                                         radius: 25.0,
                                         backgroundImage:AssetImage(nameImage[index]),
-                                        backgroundColor: Colors.blueAccent,
+                                        backgroundColor: Colors.green,
                                       ),
                                     ),
                                     Text(nameList[index]),
@@ -207,7 +203,7 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
                                       child: IconButton(
                                         icon: feedbackButton[index] == false? 
                                           Icon(CupertinoIcons.add_circled, color: Colors.blueAccent,) : 
-                                          Icon(CupertinoIcons.check_mark_circled, color: Colors.greenAccent),
+                                          Icon(CupertinoIcons.check_mark_circled, color: Colors.green),
                                         onPressed: () {
                                           setState(() {
                                             feedbackButton[index] = feedbackButton[index] == true ? false : true;
@@ -236,7 +232,7 @@ class JourneyScreenState extends State<JourneyScreen> with TickerProviderStateMi
                     color: Colors.white,
                   ),
                 ),
-                color: Colors.blueAccent,
+                color: Colors.green,
               ),
               ])
             ),
