@@ -1,7 +1,3 @@
-import 'dart:async';
-
-import 'package:firebase_database/firebase_database.dart';
-
 class FireSymptomQuery {
   String key;
   String sex;
@@ -13,15 +9,6 @@ class FireSymptomQuery {
 
   FireSymptomQuery(this.sex, this.age, this.evidence,
       [this.condition, this.commonName, this.probability]);
-
-  FireSymptomQuery.fromSnapshot(DataSnapshot snapshot)
-      : key = snapshot.key,
-        age = snapshot.value['age'],
-        sex = snapshot.value['sex'],
-        condition = snapshot.value['condition'],
-        commonName = snapshot.value['commonName'],
-        probability = snapshot.value['probability'],
-        evidence = snapshot.value["evidence"];
 
   FireSymptomQuery.fromJson(Map<dynamic, dynamic> json)
       : sex = json['sex'],
@@ -53,39 +40,4 @@ class FireSymptomQuery {
         'probability': probability
       };
 
-  static Future<StreamSubscription<Event>> getSessionStream(
-      String userId, void onData(FireSymptomQuery fireSymptomQuery)) async {
-    StreamSubscription<Event> subscription = FirebaseDatabase.instance
-        .reference()
-        .child('sessions')
-        .child(userId)
-        .onValue
-        .listen((Event event) {
-
-      for (String key in event.snapshot.value.keys) {
-        var fireSymptomQuery =
-        new FireSymptomQuery.getJson(key, event.snapshot.value);
-        onData(fireSymptomQuery);
-      }
-    });
-    return subscription;
-  }
-
-  static Future<FireSymptomQuery> getSession(String userId, String sessionKey) async {
-    Completer<FireSymptomQuery> completer = new Completer<FireSymptomQuery>();
-
-
-    FirebaseDatabase.instance
-        .reference()
-        .child('sessions')
-        .child(userId)
-        .child(sessionKey)
-        .once()
-        .then((DataSnapshot snapshot) {
-      var fireSymptomQuery = new FireSymptomQuery.mineJson(snapshot.value);
-      completer.complete(fireSymptomQuery);
-    });
-
-    return completer.future;
-  }
 }

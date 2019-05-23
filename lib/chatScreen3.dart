@@ -11,7 +11,6 @@ import 'dart:convert';
 import 'dart:async';
 import 'maps.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_database/firebase_database.dart';
 
 void main() {
   runApp(new MyApp());
@@ -93,7 +92,6 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   List<ChatMessage> _messages = [];
   TextEditingController _textController = new TextEditingController();
 
-  StreamSubscription<Event> _patientsSubscription;
 
   String currentUserName = '';
 
@@ -145,7 +143,6 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         message.animationController.dispose();
       }
     }
-    _patientsSubscription.cancel();
   }
 
   void handleSubmitted(String text) {
@@ -411,7 +408,17 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: new Column(children: [
+        body: Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(colors: [Colors.blue[800], Colors.green[600]],
+                begin: const FractionalOffset(0.5, 0.0),
+                end: const FractionalOffset(0.0, 0.5),
+                stops: [0.0,1.0],
+                tileMode: TileMode.clamp
+            ),
+          ),
+        
+        child: new Column(children: [
       new Flexible(
           child: new ListView.builder(
         padding: new EdgeInsets.all(8.0),
@@ -427,7 +434,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
           decoration: new BoxDecoration(color: Theme.of(context).cardColor),
           child: _buildTextComposer()),
       new Padding(padding: new EdgeInsets.only(top: 50.0))
-    ]));
+    ])));
   }
 }
 

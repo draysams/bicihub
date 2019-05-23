@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'menu.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage(
@@ -162,8 +163,23 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          //make first character capital and replace '_' with '  '
-          title: Text('Statistics'), 
+          title: Text('Statistics',
+          style: TextStyle(
+            color: Colors.white,
+          ),), 
+          flexibleSpace: Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+                colors: [
+                  const Color(0xFF3366FF),
+                  const Color(0xFF00CCFF),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp),
+          ),
+        ),
         ),
         
         body: Container(
@@ -184,8 +200,7 @@ class _MainPageState extends State<MainPage> {
                 padding: EdgeInsets.only(left: 30.0, top: 35),
                 child: CircleAvatar(
                 radius: 20.0,
-                backgroundImage:
-                    NetworkImage("https://banner2.kisspng.com/20180403/cuw/kisspng-trophy-computer-icons-prize-gold-medal-prize-5ac3ed9941a138.2167077015227897852688.jpg"),
+                backgroundImage: AssetImage('assets/avatars1.jpg'),
                 backgroundColor: Colors.blueAccent,
               ),
             ),
@@ -202,6 +217,7 @@ class _MainPageState extends State<MainPage> {
                     child: Text('Your position #5',
                     style: TextStyle(
                       fontSize: 15.0,
+                      color: Colors.white,
                     ),),
                   ),
                   new Padding(
@@ -217,6 +233,7 @@ class _MainPageState extends State<MainPage> {
                     child: Text('School position #9',
                     style: TextStyle(
                       fontSize: 15.0,
+                      color: Colors.white,
                     ),),
                   ),
                   new Padding(
@@ -231,8 +248,7 @@ class _MainPageState extends State<MainPage> {
                 padding: EdgeInsets.only(left: 50.0, top: 10),
                 child: CircleAvatar(
                 radius: 80.0,
-                backgroundImage:
-                    NetworkImage("https://banner2.kisspng.com/20180403/cuw/kisspng-trophy-computer-icons-prize-gold-medal-prize-5ac3ed9941a138.2167077015227897852688.jpg"),
+                backgroundImage:AssetImage('assets/activity2.jpg'),
                 backgroundColor: Colors.blueAccent,
               ),
             ),
@@ -242,10 +258,11 @@ class _MainPageState extends State<MainPage> {
               children: <Widget>[
                 new Padding(
                   padding: EdgeInsets.only(left: 140.0, top: 20.0),
-                  child: Text('Your Trip Stats',
+                  child: Text('Your Stats',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 20.0,
+                    color: Colors.white,
                   ),),
                 ),
               ],
@@ -255,12 +272,20 @@ class _MainPageState extends State<MainPage> {
                 Row(
                   children: <Widget> [
                     Padding(
-                      padding: EdgeInsets.only(left: 50.0, top: 50),
-                      child: Text('Time Travelled'),
+                      padding: EdgeInsets.only(left: 70.0, top: 50),
+                      child: Text('Time Travelled',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),),
                     ),
                     new Padding(
-                      padding: EdgeInsets.only(left: 136.0, top: 50.0),
-                      child: Text('5 hours'),
+                      padding: EdgeInsets.only(left: 30.0, top: 50.0),
+                      child: Text('5 h 28 m',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),),
                     )
                 ],
                                 ), 
@@ -270,12 +295,20 @@ class _MainPageState extends State<MainPage> {
             new Row(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.only(left: 50.0, top: 20.0),
-                  child: Text('Top Speed'),
+                  padding: EdgeInsets.only(left: 70.0, top: 20.0),
+                  child: Text('Top Speed',
+                  style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 160.0, top: 20.0),
-                  child: Text('23.3km/h'),
+                  padding: EdgeInsets.only(left: 67.0, top: 20.0),
+                  child: Text('23.3km/h',
+                  style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),),
                 )
               ],
             ),
@@ -283,23 +316,36 @@ class _MainPageState extends State<MainPage> {
             new Row(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.only(left: 50.0, top: 20.0),
-                  child: Text('Time '),
+                  padding: EdgeInsets.only(left: 70.0, top: 20.0),
+                  child: Text('Time',
+                  style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 180.0, top: 20.0),
-                  child: Text('36 Minutes'),
+                  padding: EdgeInsets.only(left: 120.0, top: 20.0),
+                  child: Text('36 Minutes',
+                  style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),),
                 )
               ],
             ),
 
             Padding(
-              padding: EdgeInsets.only(top: 210),
+              padding: EdgeInsets.only(top: 190),
               child: CupertinoButton(
                 color: Colors.green,
-                child: Text('Start Journey'),
+                child: Text('Start Journey',
+                style: TextStyle(
+                        color: Colors.white,
+                      ),),
                 onPressed: () {
-
+                   Navigator.of(context).push(new CupertinoPageRoute<void>(
+                    builder: (BuildContext context) => new JourneyPage()
+                  ));
                 },
               ),
             ),
@@ -307,7 +353,6 @@ class _MainPageState extends State<MainPage> {
         )));
 
   }
-  bool _switchValue = false;
 
   void onMapCreated(controller) {
     resetToggle = true;
