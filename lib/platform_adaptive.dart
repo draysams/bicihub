@@ -9,7 +9,7 @@ final ThemeData kIOSTheme = new ThemeData(
 
 final ThemeData kDefaultTheme = new ThemeData(
   primarySwatch: Colors.purple,
-  accentColor: Colors.orangeAccent[400],
+  accentColor: Colors.greenAccent[400],
 );
 
 /// App bar that uses iOS styling on iOS
