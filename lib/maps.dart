@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'model.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'statistics.dart';
+import 'dart:math';
+import 'package:flutter/cupertino.dart';
 
 
 class MapsPage extends StatefulWidget {
@@ -63,10 +66,12 @@ class _MapsPageState extends State<MapsPage> {
   void _add() {
     List contextMarkers = parseTitle();
     for (var marker in contextMarkers) {
+      int random = Random().nextInt(10);
       double xMarker = lastLatitude = marker['X'];
       double yMarker = lastLongitude = marker['Y'];
       markerId = MarkerId((marker['location_stand']));
       processedMarker = Marker(
+        icon: BitmapDescriptor.fromAsset('assets/avatars' + random .toString()+ '.jpg'),
         markerId: markerId,
         position: LatLng(
           yMarker,
@@ -197,6 +202,7 @@ class _MapsPageState extends State<MapsPage> {
       });
     }
 
+  bool started = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -226,6 +232,82 @@ class _MapsPageState extends State<MapsPage> {
                             'Loading.. Please wait..',
                             style: TextStyle(fontSize: 20.0),
                           ))),
+                !started ? Positioned(
+                  top: MediaQuery.of(context).size.height - 350.0,
+                  left: 60.0,
+                  right: 60.0,
+                  child: Container(
+                      height: 50.0,
+                      width: MediaQuery.of(context).size.width,
+                      child:  Dismissible(
+                        key: ObjectKey(1),
+                        child: Container(
+                          child: Card(
+                            color: Colors.blue,
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              onTap: () {
+                                   setState(() {
+                                    started = true;
+                                  });
+                              },
+                              child: Container(
+                                width: 300,
+                                height: 100,
+                                child: Center(
+                                  child: Text('Swipe to start trip',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  )),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        onDismissed: (direction) {
+                          
+                        },
+                      ))): Positioned(
+                  top: MediaQuery.of(context).size.height - 350.0,
+                  left: 60.0,
+                  right: 60.0,
+                  child: Container(
+                      height: 50.0,
+                      width: MediaQuery.of(context).size.width,
+                      child:  Dismissible(
+                        key: ObjectKey(1),
+                        child: Container(
+                          child: Card(
+                            color: Colors.green,
+                            child: InkWell(
+                              splashColor: Colors.blue.withAlpha(30),
+                              onTap: () {
+                                   
+                              },
+                              child: Container(
+                                width: 300,
+                                height: 100,
+                                child: Center(
+                                  child: Text('Swipe to end trip',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  )),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        onDismissed: (direction) {
+                          setState(() {
+                            started = false;
+                          });
+                          Navigator.of(context).push(new CupertinoPageRoute<void>(
+                            builder: (BuildContext context) =>  StatisticsPage(),
+                          ));
+                        },
+                      ))),
                 Positioned(
                     top: MediaQuery.of(context).size.height - 300.0,
                     left: 10.0,
@@ -246,6 +328,7 @@ class _MapsPageState extends State<MapsPage> {
                             50.0),
                         right: 15.0,
                         child: FloatingActionButton(
+                          heroTag: "btn1",
                           onPressed: resetCamera,
                           mini: true,
                           backgroundColor: Colors.red,
@@ -259,6 +342,7 @@ class _MapsPageState extends State<MapsPage> {
                             50.0),
                         right: 60.0,
                         child: FloatingActionButton(
+                          heroTag: "btnw",
                           onPressed: addBearing,
                           mini: true,
                           backgroundColor: Colors.green,
@@ -273,6 +357,7 @@ class _MapsPageState extends State<MapsPage> {
                             50.0),
                         right: 110.0,
                         child: FloatingActionButton(
+                          heroTag: "btn3",
                           onPressed: () {
                           Navigator.push(
                                   context,
