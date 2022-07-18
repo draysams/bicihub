@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Runner.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+				<key>dateExpires</key>
+				<string>21/05/2022</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>App.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Flutter.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>GoogleUtilities.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>geolocator.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>google_api_availability.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>leveldb.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>nanopb.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A9E8656EBA58E9A8948FB9E532CB8D09A6B24A12</string>
+						<key>dateExpires</key>
+						<string>21/05/2022</string>
+						<key>type</key>
+						<string>iOS Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>permission_handler.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7Q7JMT3A8W</string>
+						<key>name</key>
+						<string>Equal Experts UK Ltd (Enterprise)</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>7Q7JMT3A8W.com.equalexperts.devxbot</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>7Q7JMT3A8W</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>7Q7JMT3A8W.com.equalexperts.devxbot</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Runner.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>96376963-9e43-4409-9b14-40477c837242</string>
+				<key>name</key>
+				<string>iOS Team Inhouse Provisioning Profile: com.equalexperts.devxbot</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>7Q7JMT3A8W</string>
+				<key>name</key>
+				<string>Equal Experts UK Ltd (Enterprise)</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
